@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useSound from 'use-sound';
 
 export type Surface = {
   surface1: string[],
@@ -43,6 +44,7 @@ export const useSurface = () => {
     surface5: [...view.surface5],
     surface6: [...view.surface6],
   };
+  const [onSound] = useSound("/sound.wav");
   
   //Vertical
   function handleSurface_Vertica_Left_Back() {
@@ -55,6 +57,7 @@ export const useSurface = () => {
     surface.surface5.splice(0, 2, ...targetSurface1);
     surface.surface3.splice(0, 2, ...targetSurface5);
     surface.surface6.splice(0, 2, ...targetSurface3);
+    onSound();
     return setView(surface);
   };
   function handleSurface_Vertica_Right_Back() {
@@ -67,6 +70,7 @@ export const useSurface = () => {
     surface.surface5.splice(2, 2, ...targetSurface1);
     surface.surface3.splice(2, 2, ...targetSurface5);
     surface.surface6.splice(2, 2, ...targetSurface3);
+    onSound();
     return setView(surface);
   };
 
@@ -80,6 +84,7 @@ export const useSurface = () => {
     surface.surface5.splice(0, 2, ...targetSurface3);
     surface.surface3.splice(0, 2, ...targetSurface6);
     surface.surface6.splice(0, 2, ...targetSurface1);
+    onSound();
     setView(surface);
   };
   function handleSurface_Vertical_Right_Front() {
@@ -92,6 +97,7 @@ export const useSurface = () => {
     surface.surface5.splice(2, 2, ...targetSurface3);
     surface.surface3.splice(2, 2, ...targetSurface6);
     surface.surface6.splice(2, 2, ...targetSurface1);
+    onSound();
     setView(surface);
   };
 
@@ -114,6 +120,7 @@ export const useSurface = () => {
     surface.surface3.splice(2, 1, ...targetSurface44);
     surface.surface2.splice(0, 1, ...targetSurface3);
     surface.surface2.splice(2, 1, ...targetSurface33);
+    onSound();
     setView(surface);
   };
   function handleSurface_Beside_Bottom_Left() {
@@ -134,6 +141,7 @@ export const useSurface = () => {
     surface.surface3.splice(3, 1, ...targetSurface44);
     surface.surface2.splice(1, 1, ...targetSurface3);
     surface.surface2.splice(3, 1, ...targetSurface33);
+    onSound();
     setView(surface);
   };
 
@@ -155,6 +163,7 @@ export const useSurface = () => {
     surface.surface3.splice(2, 1, ...targetSurface22);
     surface.surface2.splice(0, 1, ...targetSurface1);
     surface.surface2.splice(2, 1, ...targetSurface11);
+    onSound();
     setView(surface);
   };
   function handleSurface_Beside_Bottom_Right() {
@@ -175,6 +184,7 @@ export const useSurface = () => {
     surface.surface3.splice(3, 1, ...targetSurface22);
     surface.surface2.splice(1, 1, ...targetSurface1);
     surface.surface2.splice(3, 1, ...targetSurface11);
+    onSound();
     setView(surface);
   };
 

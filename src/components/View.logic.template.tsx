@@ -122,10 +122,6 @@ export const ViewTemplate: React.FC<Props> = props => {
   )
 };
 
-const $cube = css`
-  display: flex;
-`
-
 const $wraper = css`
   margin: 100px auto 0;
   text-align: center;
@@ -133,13 +129,6 @@ const $wraper = css`
 
 const $container = css`
   margin: 10px 10px;
-`;
-
-const $color = (color: string) =>  css`
-  background-color: ${color};
-  width: 20px;
-  height: 20px;
-  border: 1px solid;
 `;
 
 const $surface_button = css`
