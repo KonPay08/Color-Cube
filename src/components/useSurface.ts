@@ -49,6 +49,7 @@ export const useSurface = () => {
   //Vertical
   function handleSurface_Vertica_Left_Back() {
     const surface = newSurface;
+    //縦の面の処理
     const targetSurface1 = [...surface.surface1].splice(0, 2);
     const targetSurface5 = [...surface.surface5].splice(0, 2);
     const targetSurface3 = [...surface.surface3].splice(0, 2);
@@ -57,11 +58,18 @@ export const useSurface = () => {
     surface.surface5.splice(0, 2, ...targetSurface1);
     surface.surface3.splice(0, 2, ...targetSurface5);
     surface.surface6.splice(0, 2, ...targetSurface3);
+    //側面の処理(反時計回り)
+    const targetSurface4 = [...surface.surface4].splice(0, 1);
+    const targetSurface44 = [...surface.surface4].splice(1, 1);
+    const targetSurface444 = [...surface.surface4].splice(2, 1);
+    const targetSurface4444 = [...surface.surface4].splice(3, 1);
+    surface.surface4.splice(0, 4, ...targetSurface444, ...targetSurface4, ...targetSurface4444, ...targetSurface44);
     onSound();
     return setView(surface);
   };
   function handleSurface_Vertica_Right_Back() {
     const surface = newSurface;
+    //縦の面の処理
     const targetSurface1 = [...surface.surface1].splice(2, 2);
     const targetSurface5 = [...surface.surface5].splice(2, 2);
     const targetSurface3 = [...surface.surface3].splice(2, 2);
@@ -70,12 +78,20 @@ export const useSurface = () => {
     surface.surface5.splice(2, 2, ...targetSurface1);
     surface.surface3.splice(2, 2, ...targetSurface5);
     surface.surface6.splice(2, 2, ...targetSurface3);
+    //側面の処理(時計回り)
+    const targetSurface2 = [...surface.surface2].splice(0, 1);
+    const targetSurface22 = [...surface.surface2].splice(1, 1);
+    const targetSurface222 = [...surface.surface2].splice(2, 1);
+    const targetSurface2222 = [...surface.surface2].splice(3, 1);
+    surface.surface2.splice(0, 4, ...targetSurface22, ...targetSurface2222, ...targetSurface2, ...targetSurface222);
+    
     onSound();
     return setView(surface);
   };
 
   function handleSurface_Vertical_Left_Front() {
     const surface = newSurface;
+    //縦の面の処理
     const targetSurface1 = [...surface.surface1].splice(0, 2);
     const targetSurface5 = [...surface.surface5].splice(0, 2);
     const targetSurface3 = [...surface.surface3].splice(0, 2);
@@ -84,11 +100,18 @@ export const useSurface = () => {
     surface.surface5.splice(0, 2, ...targetSurface3);
     surface.surface3.splice(0, 2, ...targetSurface6);
     surface.surface6.splice(0, 2, ...targetSurface1);
+    //側面の処理(時計回り)
+    const targetSurface4 = [...surface.surface4].splice(0, 1);
+    const targetSurface44 = [...surface.surface4].splice(1, 1);
+    const targetSurface444 = [...surface.surface4].splice(2, 1);
+    const targetSurface4444 = [...surface.surface4].splice(3, 1);
+    surface.surface4.splice(0, 4, ...targetSurface44, ...targetSurface4444, ...targetSurface4, ...targetSurface444);
     onSound();
     setView(surface);
   };
   function handleSurface_Vertical_Right_Front() {
     const surface = newSurface;
+    //縦の面の処理
     const targetSurface1 = [...surface.surface1].splice(2, 2);
     const targetSurface5 = [...surface.surface5].splice(2, 2);
     const targetSurface3 = [...surface.surface3].splice(2, 2);
@@ -97,6 +120,12 @@ export const useSurface = () => {
     surface.surface5.splice(2, 2, ...targetSurface3);
     surface.surface3.splice(2, 2, ...targetSurface6);
     surface.surface6.splice(2, 2, ...targetSurface1);
+    //側面の処理(反時計回り)
+    const targetSurface2 = [...surface.surface2].splice(0, 1);
+    const targetSurface22 = [...surface.surface2].splice(1, 1);
+    const targetSurface222 = [...surface.surface2].splice(2, 1);
+    const targetSurface2222 = [...surface.surface2].splice(3, 1);
+    surface.surface2.splice(0, 4, ...targetSurface222, ...targetSurface2, ...targetSurface2222, ...targetSurface22);
     onSound();
     setView(surface);
   };
@@ -104,6 +133,7 @@ export const useSurface = () => {
   //Beside
   function handleSurface_Beside_Top_Left() {
     const surface = newSurface;
+    //側面の処理
     const targetSurface1 = [...surface.surface1].slice(0, 1);
     const targetSurface11 = [...surface.surface1].slice(2, 3);
     const targetSurface4 = [...surface.surface4].slice(0, 1);
@@ -120,11 +150,18 @@ export const useSurface = () => {
     surface.surface3.splice(2, 1, ...targetSurface44);
     surface.surface2.splice(0, 1, ...targetSurface3);
     surface.surface2.splice(2, 1, ...targetSurface33);
+    //縦の面の処理(時計回り)
+    const targetSurface5 = [...surface.surface5].splice(0, 1);
+    const targetSurface55 = [...surface.surface5].splice(1, 1);
+    const targetSurface555 = [...surface.surface5].splice(2, 1);
+    const targetSurface5555 = [...surface.surface5].splice(3, 1);
+    surface.surface5.splice(0, 4, ...targetSurface55, ...targetSurface5555, ...targetSurface5, ...targetSurface555);
     onSound();
     setView(surface);
   };
   function handleSurface_Beside_Bottom_Left() {
     const surface = newSurface;
+    //側面の処理
     const targetSurface1 = [...surface.surface1].slice(1, 2);
     const targetSurface11 = [...surface.surface1].slice(3, 4);
     const targetSurface4 = [...surface.surface4].slice(1, 2);
@@ -141,12 +178,19 @@ export const useSurface = () => {
     surface.surface3.splice(3, 1, ...targetSurface44);
     surface.surface2.splice(1, 1, ...targetSurface3);
     surface.surface2.splice(3, 1, ...targetSurface33);
+    //縦の面の処理(反時計回り)
+    const targetSurface6 = [...surface.surface6].splice(0, 1);
+    const targetSurface66 = [...surface.surface6].splice(1, 1);
+    const targetSurface666 = [...surface.surface6].splice(2, 1);
+    const targetSurface6666 = [...surface.surface6].splice(3, 1);
+    surface.surface6.splice(0, 4, ...targetSurface666, ...targetSurface6, ...targetSurface6666, ...targetSurface66);
     onSound();
     setView(surface);
   };
 
   function handleSurface_Beside_Top_Right() {
     const surface = newSurface;
+    //側面の処理
     const targetSurface1 = [...surface.surface1].slice(0, 1);
     const targetSurface11 = [...surface.surface1].slice(2, 3);
     const targetSurface4 = [...surface.surface4].slice(0, 1);
@@ -163,11 +207,18 @@ export const useSurface = () => {
     surface.surface3.splice(2, 1, ...targetSurface22);
     surface.surface2.splice(0, 1, ...targetSurface1);
     surface.surface2.splice(2, 1, ...targetSurface11);
+    //縦の面の処理(反時計回り)
+    const targetSurface5 = [...surface.surface5].splice(0, 1);
+    const targetSurface55 = [...surface.surface5].splice(1, 1);
+    const targetSurface555 = [...surface.surface5].splice(2, 1);
+    const targetSurface5555 = [...surface.surface5].splice(3, 1);
+    surface.surface5.splice(0, 4, ...targetSurface555, ...targetSurface5, ...targetSurface5555, ...targetSurface55);
     onSound();
     setView(surface);
   };
   function handleSurface_Beside_Bottom_Right() {
     const surface = newSurface;
+    //側面の処理
     const targetSurface1 = [...surface.surface1].slice(1, 2);
     const targetSurface11 = [...surface.surface1].slice(3, 4);
     const targetSurface4 = [...surface.surface4].slice(1, 2);
@@ -184,6 +235,12 @@ export const useSurface = () => {
     surface.surface3.splice(3, 1, ...targetSurface22);
     surface.surface2.splice(1, 1, ...targetSurface1);
     surface.surface2.splice(3, 1, ...targetSurface11);
+    //縦の面の処理(時計回り)
+    const targetSurface6 = [...surface.surface6].splice(0, 1);
+    const targetSurface66 = [...surface.surface6].splice(1, 1);
+    const targetSurface666 = [...surface.surface6].splice(2, 1);
+    const targetSurface6666 = [...surface.surface6].splice(3, 1);
+    surface.surface6.splice(0, 4, ...targetSurface66, ...targetSurface6666, ...targetSurface6, ...targetSurface666);
     onSound();
     setView(surface);
   };
