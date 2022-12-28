@@ -1,12 +1,7 @@
 /** @jsxImportSource @emotion/react */ 
 import { css } from "@emotion/react";
 import { Surface } from "../useSurface"
-import { CubeBack } from "./Cube.back"
-import { CubeBottom } from "./Cube.bottom"
-import { CubeFront } from "./Cube.front"
-import { CubeLeft } from "./Cube.left"
-import { CubeRight } from "./Cube.right"
-import { CubeTop } from "./Cube.top"
+import { CubeTemplate } from "./Cube.template";
 
 type Props = {
   view: Surface,
@@ -16,12 +11,12 @@ export const Cube: React.FC<Props> = props => {
   return (
     <div css={$canvas}>
       <div css={$cube}>
-        <CubeFront view={props.view}/>
-        <CubeBack view={props.view}/>
-        <CubeLeft view={props.view}/>
-        <CubeRight view={props.view}/>
-        <CubeTop view={props.view}/>
-        <CubeBottom view={props.view}/>
+        <CubeTemplate view={props.view.surface1} direction="front" />
+        <CubeTemplate view={props.view.surface6} direction="bottom" />
+        <CubeTemplate view={props.view.surface3} direction="back" />
+        <CubeTemplate view={props.view.surface4} direction="left" />
+        <CubeTemplate view={props.view.surface2} direction="right" />
+        <CubeTemplate view={props.view.surface5} direction="top" />
       </div>
     </div>
   );

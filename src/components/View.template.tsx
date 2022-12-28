@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */ 
 import { css } from "@emotion/react";
-import { Cube } from "./Cube/Cube";
+import { Cube } from "./Cube/Cube.container";
 import { Surface } from "./useSurface";
 
 type Props = {
@@ -15,12 +15,21 @@ type Props = {
   handleSurface_Beside_Bottom_Left(): void,
   handleSurface_Beside_Top_Right(): void,
   handleSurface_Beside_Bottom_Right(): void,
+
+  handleDestination_right(): void,
+  handleDestination_left(): void,
 };
 
 export const ViewColorTemplate: React.FC<Props> = props => {
-
-  return(
+  
+  return (
     <div css={$container}>
+      <button onClick={props.handleDestination_left}>
+        左回転
+      </button>
+      <button onClick={props.handleDestination_right}>
+        右回転
+      </button>
       <div css={$top_rotation_button}>
         <button onClick={props.handleSurface_Vertica_Left_Back}>↑</button>
         <button onClick={props.handleSurface_Vertica_Right_Back}>↑</button>
