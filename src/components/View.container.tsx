@@ -1,5 +1,5 @@
 import { useSurface } from "./useSurface"
-import { ViewColorTemplate } from "./View.color.template";
+import { ViewColorTemplate } from "./View.template";
 
 export const View = () => {
   const props = useSurface()

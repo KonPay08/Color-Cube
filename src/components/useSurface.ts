@@ -11,17 +11,6 @@ export type Surface = {
 };
 
 export const useSurface = () => {
-  
-  // const surface: Surface = {
-  //   //横面
-  //   surface1: ["red1", "red2", "red3", "red4"],
-  //   surface2: ["green1", "green2", "green3", "green4"],
-  //   surface3: ["orange1", "orange2", "orange3", "orange4"],
-  //   surface4: ["blue1", "blue2", "blue3", "blue4"],
-  //   //縦面
-  //   surface5: ["yellow1", "yellow2", "yellow3", "yellow4"],
-  //   surface6: ["white1", "white2", "white3", "white4"],
-  // };
 
   const surface: Surface = {
     //横面
@@ -245,6 +234,64 @@ export const useSurface = () => {
     setView(surface);
   };
 
+  function handleDestination_left() {
+    const surface = newSurface;
+    const surface1 = surface.surface1;
+    const surface2 = surface.surface2;
+    const surface3 = surface.surface3;
+    const surface4 = surface.surface4;
+    const surface5 = surface.surface5;
+    const surface6 = surface.surface6;
+    const surface5_1 = surface5[0];
+    const surface5_2 = surface5[1];
+    const surface5_3 = surface5[2];
+    const surface5_4 = surface5[3];
+
+    const surface6_1 = surface6[0];
+    const surface6_2 = surface6[1];
+    const surface6_3 = surface6[2];
+    const surface6_4 = surface6[3];
+
+    surface.surface1 = surface2;
+    surface.surface2 = surface3;
+    surface.surface3 = surface4;
+    surface.surface4 = surface1;
+    surface.surface5 = [surface5_2, surface5_4, surface5_1, surface5_3];
+    surface.surface6 = [surface6_3, surface6_1, surface6_4, surface6_2];
+    onSound();
+    setView(surface);
+  };
+
+  function handleDestination_right() {
+    const surface = newSurface;
+    const surface1 = surface.surface1;
+    const surface2 = surface.surface2;
+    const surface3 = surface.surface3;
+    const surface4 = surface.surface4;
+    const surface5 = surface.surface5;
+    const surface6 = surface.surface6;
+
+    const surface5_1 = surface5[0];
+    const surface5_2 = surface5[1];
+    const surface5_3 = surface5[2];
+    const surface5_4 = surface5[3];
+
+    const surface6_1 = surface6[0];
+    const surface6_2 = surface6[1];
+    const surface6_3 = surface6[2];
+    const surface6_4 = surface6[3];
+
+    surface.surface1 = surface4;
+    surface.surface2 = surface1;
+    surface.surface3 = surface2;
+    surface.surface4 = surface3;
+    surface.surface5 = [surface5_3, surface5_1, surface5_4, surface5_2];
+    surface.surface6 = [surface6_2, surface6_4, surface6_1, surface6_3];
+    onSound();
+    setView(surface);
+  };
+
+
   return {
     view,
     handleSurface_Vertica_Left_Back,
@@ -256,5 +303,8 @@ export const useSurface = () => {
     handleSurface_Beside_Bottom_Left,
     handleSurface_Beside_Top_Right,
     handleSurface_Beside_Bottom_Right,
+
+    handleDestination_right,
+    handleDestination_left,
   };
 };
