@@ -2,6 +2,7 @@
 import { css } from "@emotion/react";
 import { useEffect } from "react";
 import { Cube } from "./Cube/Cube.container";
+import { MyDialog, MyDialogProps } from "./MyDialog";
 import { Surface } from "./useSurface";
 
 type Props = {
@@ -19,9 +20,11 @@ type Props = {
 
   handleDestination_right(): void,
   handleDestination_left(): void,
-
-  handleReset(): void,
+  
+  modalConfig: MyDialogProps | undefined
   randomSurface(): void,
+  handleResetClick: () => Promise<void>,
+  handleRandomClick: () => Promise<void>,
 };
 
 export const ViewColorTemplate: React.FC<Props> = props => {
@@ -32,6 +35,7 @@ export const ViewColorTemplate: React.FC<Props> = props => {
   
   return (
     <div css={$container}>
+      {props.modalConfig && <MyDialog {...props.modalConfig} />}
       <div css={$surface_button}>
         <button onClick={props.handleDestination_left}>
           左回転
@@ -39,10 +43,10 @@ export const ViewColorTemplate: React.FC<Props> = props => {
         <button onClick={props.handleDestination_right}>
           右回転
         </button>
-        <button onClick={props.handleReset}>
+        <button onClick={props.handleResetClick}>
           Reset
         </button>
-        <button onClick={props.randomSurface}>
+        <button onClick={props.handleRandomClick}>
           Random
         </button>
       </div>

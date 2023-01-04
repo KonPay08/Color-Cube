@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useSound from 'use-sound';
 import { MockSurface } from "./Mock";
+import { MyDialogProps } from "./MyDialog";
 
 
 export type Surface = {
@@ -37,16 +38,6 @@ export const useSurface = () => {
   };
   const [onSound] = useSound("/sound.wav");
 
-  function handleReset() {
-    setView(surface);
-  };
-
-  function randomSurface() {
-    const num = Math.floor(Math.random() * 3);
-    console.log(num)
-    setView(MockSurface[num]);
-  };
-  
   //Vertical
   function handleSurface_Vertica_Left_Back() {
     const surface = newSurface;
@@ -262,6 +253,48 @@ export const useSurface = () => {
     setView(surface);
   };
 
+  function resetSurface() {
+    setView(surface);
+  };
+
+  function randomSurface() {
+    const num = Math.floor(Math.random() * 3);
+    console.log(num)
+    setView(MockSurface[num]);
+  };
+
+  const [modalConfig, setModalConfig] = useState<MyDialogProps | undefined>();
+
+  const handleResetClick = async() => {
+    console.log("clickされました");
+    const ret = await new Promise<string>((resolve) => {
+      setModalConfig({
+        onClose: resolve,
+        title: "リセットします。よろしいですか？",
+        message: "※リセットすると初期状態に戻ります。"
+      });
+    });
+    setModalConfig(undefined);
+    console.log(ret);
+    if(ret === "ok") resetSurface();
+    if(ret === "cancel") return;
+  };
+
+  const handleRandomClick = async() => {
+    console.log("clickされました");
+    const ret = await new Promise((resolve) => {
+      setModalConfig({
+        onClose: resolve,
+        title: "シャッフルします。よろしいですか?",
+        message: "※シャッフルすると現在の情報が失われます。"
+      });
+    });
+    setModalConfig(undefined);
+    console.log(ret);
+    if(ret === "ok") randomSurface();
+    if(ret === "cancel") return;
+  };
+
   return {
     view,
     handleSurface_Vertica_Left_Back,
@@ -277,7 +310,9 @@ export const useSurface = () => {
     handleDestination_right,
     handleDestination_left,
 
-    handleReset,
+    modalConfig,
     randomSurface,
+    handleResetClick,
+    handleRandomClick,
   };
 };
