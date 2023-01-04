@@ -1,4 +1,4 @@
-![cube](https://user-images.githubusercontent.com/84298892/209626303-3495ca50-a06d-4e8e-9401-ad497e017f1e.gif)
+![cube](https://user-images.githubusercontent.com/84298892/210513372-9c0e649e-c7cf-45ab-a2bc-200ec135f6f8.gif)
 
 # Getting Started with Create React App
 
