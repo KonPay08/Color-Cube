@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */ 
 import { css } from "@emotion/react";
+import { useEffect } from "react";
 import { Cube } from "./Cube/Cube.container";
 import { Surface } from "./useSurface";
 
@@ -18,9 +19,16 @@ type Props = {
 
   handleDestination_right(): void,
   handleDestination_left(): void,
+
+  handleReset(): void,
+  randomSurface(): void,
 };
 
 export const ViewColorTemplate: React.FC<Props> = props => {
+
+  useEffect(() => {
+    props.randomSurface();
+  },[]);
   
   return (
     <div css={$container}>
@@ -30,6 +38,12 @@ export const ViewColorTemplate: React.FC<Props> = props => {
         </button>
         <button onClick={props.handleDestination_right}>
           右回転
+        </button>
+        <button onClick={props.handleReset}>
+          Reset
+        </button>
+        <button onClick={props.randomSurface}>
+          Random
         </button>
       </div>
       <div css={$top_rotation_button}>

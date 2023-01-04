@@ -1,5 +1,7 @@
 import { useState } from "react";
 import useSound from 'use-sound';
+import { MockSurface } from "./Mock";
+
 
 export type Surface = {
   surface1: string[],
@@ -34,6 +36,16 @@ export const useSurface = () => {
     surface6: [...view.surface6],
   };
   const [onSound] = useSound("/sound.wav");
+
+  function handleReset() {
+    setView(surface);
+  };
+
+  function randomSurface() {
+    const num = Math.floor(Math.random() * 3);
+    console.log(num)
+    setView(MockSurface[num]);
+  };
   
   //Vertical
   function handleSurface_Vertica_Left_Back() {
@@ -250,7 +262,6 @@ export const useSurface = () => {
     setView(surface);
   };
 
-
   return {
     view,
     handleSurface_Vertica_Left_Back,
@@ -265,5 +276,8 @@ export const useSurface = () => {
 
     handleDestination_right,
     handleDestination_left,
+
+    handleReset,
+    randomSurface,
   };
 };
