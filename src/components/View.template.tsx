@@ -24,12 +24,14 @@ export const ViewColorTemplate: React.FC<Props> = props => {
   
   return (
     <div css={$container}>
-      <button onClick={props.handleDestination_left}>
-        左回転
-      </button>
-      <button onClick={props.handleDestination_right}>
-        右回転
-      </button>
+      <div css={$surface_button}>
+        <button onClick={props.handleDestination_left}>
+          左回転
+        </button>
+        <button onClick={props.handleDestination_right}>
+          右回転
+        </button>
+      </div>
       <div css={$top_rotation_button}>
         <button onClick={props.handleSurface_Vertica_Left_Back}>↑</button>
         <button onClick={props.handleSurface_Vertica_Right_Back}>↑</button>
@@ -62,6 +64,10 @@ const $container = css`
   & button {
     margin: 10px;
   }
+`
+
+const $surface_button = css`
+  text-align: center;
 `
 
 const $cube_container = css`
