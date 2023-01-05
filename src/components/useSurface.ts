@@ -13,20 +13,20 @@ export type Surface = {
   surface6: string[],
 };
 
-export const useSurface = () => {
+export const surface: Surface = {
+  //横面
+  surface1: ["red", "red", "red", "red"],
+  surface2: ["green", "green", "green", "green"],
+  surface3: ["orange", "orange", "orange", "orange"],
+  surface4: ["blue", "blue", "blue", "blue"],
+  //縦面
+  surface5: ["yellow", "yellow", "yellow", "yellow"],
+  surface6: ["white", "white", "white", "white"],
+};
 
-  const surface: Surface = {
-    //横面
-    surface1: ["red", "red", "red", "red"],
-    surface2: ["green", "green", "green", "green"],
-    surface3: ["orange", "orange", "orange", "orange"],
-    surface4: ["blue", "blue", "blue", "blue"],
-    //縦面
-    surface5: ["yellow", "yellow", "yellow", "yellow"],
-    surface6: ["white", "white", "white", "white"],
-  };
+export const useSurface = () => {
   
-  const [view, setView] = useState(surface);
+  const [view, setView] = useState(MockSurface[0]);
 
   const newSurface = {
     surface1: [...view.surface1],
@@ -271,9 +271,14 @@ export const useSurface = () => {
       setModalConfig({
         onClose: resolve,
         title: "リセットします。よろしいですか？",
-        message: "※リセットすると初期状態に戻ります。"
+        message: "※リセットすると初期状態に戻ります。",
+        approveText: "OK",
+        rejectionText: "CANCEL",
       });
-    });
+    }).catch(error => {
+      console.error("ERROR", error);
+      return null;
+    });;
     setModalConfig(undefined);
     console.log(ret);
     if(ret === "ok") resetSurface();
@@ -286,9 +291,32 @@ export const useSurface = () => {
       setModalConfig({
         onClose: resolve,
         title: "シャッフルします。よろしいですか?",
-        message: "※シャッフルすると現在の情報が失われます。"
+        message: "※シャッフルすると現在の情報が失われます。",
+        approveText: "OK",
+        rejectionText: "CANCEL"
       });
+    }).catch(error => {
+      console.error("ERROR", error);
+      return null;
     });
+    setModalConfig(undefined);
+    console.log(ret);
+    if(ret === "ok") randomSurface();
+    if(ret === "cancel") return;
+  };
+
+  const complete = async() => {
+    const ret = await new Promise<string>((resolve) => {
+      setModalConfig({
+        onClose: resolve,
+        title: "おめでとうございます🎉",
+        approveText: "もう一度プレイする",
+        isComplete: true,
+      });
+    }).catch(error => {
+      console.error("ERROR", error);
+      return null;
+    });;
     setModalConfig(undefined);
     console.log(ret);
     if(ret === "ok") randomSurface();
@@ -314,5 +342,6 @@ export const useSurface = () => {
     randomSurface,
     handleResetClick,
     handleRandomClick,
+    complete,
   };
 };

@@ -4,19 +4,22 @@ export type MyDialogProps = {
   onClose: (value: string) => void,
   title?: string,
   message?: string,
+  approveText?: string,
+  rejectionText?: string,
+  isComplete?: boolean,
 };
 
 export const MyDialog: React.FC<MyDialogProps> = props => {
   return (
-    <Dialog open onClose={() => props.onClose("close")} >
-      <DialogTitle>{props.title}</DialogTitle>
-      <DialogContent>
-        <DialogContentText>{props.message}</DialogContentText>
-        <DialogActions>
-          <Button onClick={() => props.onClose("ok")}>OK</Button>
-          <Button onClick={() => props.onClose("cancel")} autoFocus>Cancel</Button>
-        </DialogActions>
-      </DialogContent>
-    </Dialog>
+      <Dialog open onClose={() => props.onClose("close")} >
+        <DialogTitle>{props.title}</DialogTitle>
+        <DialogContent>
+          <DialogContentText>{props.message}</DialogContentText>
+          <DialogActions>
+            <Button onClick={() => props.onClose("ok")}>{props.approveText}</Button>
+            {!props.isComplete && <Button onClick={() => props.onClose("cancel")} autoFocus>{props.rejectionText}</Button>}
+          </DialogActions>
+        </DialogContent>
+      </Dialog>
   );
 };
