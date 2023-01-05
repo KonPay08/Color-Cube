@@ -83,7 +83,8 @@ const $container = css`
   margin-top: 100px;
   & button {
     margin: 10px;
-  }
+  };
+  z-index: 0;
 `
 
 const $surface_button = css`
