@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 import { useEffect } from "react";
 import { Cube } from "./Cube/Cube.container";
 import { MyDialog, MyDialogProps } from "./MyDialog";
-import { Surface } from "./useSurface";
+import { surface, Surface } from "./useSurface";
 
 type Props = {
   view: Surface,
@@ -25,6 +25,7 @@ type Props = {
   randomSurface(): void,
   handleResetClick: () => Promise<void>,
   handleRandomClick: () => Promise<void>,
+  complete: () => Promise<void>,
 };
 
 export const ViewColorTemplate: React.FC<Props> = props => {
@@ -32,6 +33,10 @@ export const ViewColorTemplate: React.FC<Props> = props => {
   useEffect(() => {
     props.randomSurface();
   },[]);
+
+  useEffect(() => {
+    if(props.view === surface) props.complete();
+  },[props.view]);
   
   return (
     <>
@@ -84,7 +89,6 @@ const $container = css`
   & button {
     margin: 10px;
   };
-  z-index: 0;
 `
 
 const $surface_button = css`
