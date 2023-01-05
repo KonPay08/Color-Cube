@@ -273,7 +273,10 @@ export const useSurface = () => {
         title: "リセットします。よろしいですか？",
         message: "※リセットすると初期状態に戻ります。"
       });
-    });
+    }).catch(error => {
+      console.error("ERROR", error);
+      return null;
+    });;
     setModalConfig(undefined);
     console.log(ret);
     if(ret === "ok") resetSurface();
@@ -288,6 +291,9 @@ export const useSurface = () => {
         title: "シャッフルします。よろしいですか?",
         message: "※シャッフルすると現在の情報が失われます。"
       });
+    }).catch(error => {
+      console.error("ERROR", error);
+      return null;
     });
     setModalConfig(undefined);
     console.log(ret);

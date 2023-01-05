@@ -34,46 +34,48 @@ export const ViewColorTemplate: React.FC<Props> = props => {
   },[]);
   
   return (
-    <div css={$container}>
+    <>
       {props.modalConfig && <MyDialog {...props.modalConfig} />}
-      <div css={$surface_button}>
-        <button onClick={props.handleDestination_left}>
-          左回転
-        </button>
-        <button onClick={props.handleDestination_right}>
-          右回転
-        </button>
-        <button onClick={props.handleResetClick}>
-          Reset
-        </button>
-        <button onClick={props.handleRandomClick}>
-          Random
-        </button>
-      </div>
-      <div css={$top_rotation_button}>
-        <button onClick={props.handleSurface_Vertica_Left_Back}>↑</button>
-        <button onClick={props.handleSurface_Vertica_Right_Back}>↑</button>
-      </div>
-
-      <div css={$cube_container}>
-        <div css={$left_rotation_button}>
-          <button onClick={props.handleSurface_Beside_Top_Left}>←</button>
-          <button onClick={props.handleSurface_Beside_Bottom_Left}>←</button>
+      <div css={$container}>
+        <div css={$surface_button}>
+          <button onClick={props.handleDestination_left}>
+            左回転
+          </button>
+          <button onClick={props.handleDestination_right}>
+            右回転
+          </button>
+          <button onClick={props.handleResetClick}>
+            Reset
+          </button>
+          <button onClick={props.handleRandomClick}>
+            Random
+          </button>
+        </div>
+        <div css={$top_rotation_button}>
+          <button onClick={props.handleSurface_Vertica_Left_Back}>↑</button>
+          <button onClick={props.handleSurface_Vertica_Right_Back}>↑</button>
         </div>
 
-        <Cube view={props.view} />
+        <div css={$cube_container}>
+          <div css={$left_rotation_button}>
+            <button onClick={props.handleSurface_Beside_Top_Left}>←</button>
+            <button onClick={props.handleSurface_Beside_Bottom_Left}>←</button>
+          </div>
 
-        <div css={$right_rotation_button}>
-          <button onClick={props.handleSurface_Beside_Top_Right}>→</button>
-          <button onClick={props.handleSurface_Beside_Bottom_Right}>→</button>
-         </div>
-      </div>
+          <Cube view={props.view} />
 
-      <div css={$buttom_rotation_button}>
-        <button onClick={props.handleSurface_Vertical_Left_Front}>↓</button>
-        <button onClick={props.handleSurface_Vertical_Right_Front}>↓</button>
+          <div css={$right_rotation_button}>
+            <button onClick={props.handleSurface_Beside_Top_Right}>→</button>
+            <button onClick={props.handleSurface_Beside_Bottom_Right}>→</button>
+          </div>
+        </div>
+
+        <div css={$buttom_rotation_button}>
+          <button onClick={props.handleSurface_Vertical_Left_Front}>↓</button>
+          <button onClick={props.handleSurface_Vertical_Right_Front}>↓</button>
+        </div>
       </div>
-    </div>
+    </>
   )
 };
 
