@@ -28,7 +28,6 @@ const $canvas = css`
   transform-style: preserve-3d;
   perspective: 30cm;
   perspective-origin: 10cm -10cm;
-  z-index: 100;
 `;
 const $cube = css`
   margin: 0 auto;
