@@ -1,1 +1,3 @@
-export const distDir = 'build';
+module.exports = {
+  distDir: '.next'
+};
