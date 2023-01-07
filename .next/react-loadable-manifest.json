@@ -1,8 +1,8 @@
 {
   "../../node_modules/use-sound/dist/use-sound.esm.js -> howler": {
-    "id": 1766,
+    "id": "../../node_modules/use-sound/dist/use-sound.esm.js -> howler",
     "files": [
-      "static/chunks/766.c7fd485bde2d9e9a.js"
+      "static/chunks/node_modules_howler_dist_howler_js.js"
     ]
   }
 }
