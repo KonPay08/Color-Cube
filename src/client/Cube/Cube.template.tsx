@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */ 
 import { $color, $main_container } from "./$Cube.style";
 
 type Props = {
