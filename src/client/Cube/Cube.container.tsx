@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */ 
 import { css } from "@emotion/react";
 import { Surface } from "../useSurface"
 import { CubeTemplate } from "./Cube.template";
