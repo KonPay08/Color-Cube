@@ -22,7 +22,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "build",
     "start": "next start",
     "lint": "next lint"
   },
