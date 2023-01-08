@@ -1,4 +1,4 @@
-const react = require("@vitejs/plugin-react");
+//TODO: webpackビルドだと遅いのでどっかでstorybookのみviteに移行する
 
 module.exports = {
   "stories": [
@@ -12,25 +12,10 @@ module.exports = {
   ],
   "framework": "@storybook/react",
   "core": {
-    "builder": '@storybook/builder-vite',
+    "builder": "@storybook/builder-webpack5"
   },
-  async viteFinal(config) {
-    config.plugins = config.plugins.filter(
-      (plugin) =>
-        !(Array.isArray(plugin) && plugin[0]?.name.includes("vite:react"))
-    );
-    config.plugins.push(
-      react({
-        exclude: [/\.stories\.(t|j)sx?$/, /node_modules/],
-        jsxImportSource: "@emotion/react",
-        babel: {
-          plugins: ["@emotion/babel-plugin"],
-        },
-      })
-    );
-    config.esbuild = {
-      logOverride: { 'this-is-undefined-in-esm': 'silent' }
-    }
-    return config;
-  }
- }
+  babel: async (options) => ({
+    ...options,
+    presets: [...options.presets, "@emotion/babel-preset-css-prop"],
+    }),
+}
