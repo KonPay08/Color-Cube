@@ -1,3 +1,5 @@
+const react = require("@vitejs/plugin-react");
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -10,10 +12,25 @@ module.exports = {
   ],
   "framework": "@storybook/react",
   "core": {
-    "builder": "@storybook/builder-webpack5"
+    "builder": '@storybook/builder-vite',
   },
-  babel: async (options) => ({
-    ...options,
-    presets: [...options.presets, "@emotion/babel-preset-css-prop"],
-    }),
-}
+  async viteFinal(config) {
+    config.plugins = config.plugins.filter(
+      (plugin) =>
+        !(Array.isArray(plugin) && plugin[0]?.name.includes("vite:react"))
+    );
+    config.plugins.push(
+      react({
+        exclude: [/\.stories\.(t|j)sx?$/, /node_modules/],
+        jsxImportSource: "@emotion/react",
+        babel: {
+          plugins: ["@emotion/babel-plugin"],
+        },
+      })
+    );
+    config.esbuild = {
+      logOverride: { 'this-is-undefined-in-esm': 'silent' }
+    }
+    return config;
+  }
+ }

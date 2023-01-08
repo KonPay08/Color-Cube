@@ -1,5 +1,4 @@
 import { css } from "@emotion/react";
-
 interface ButtonProps {
   backgroundColor?: string;
   size?: 'small' | 'medium' | 'large';
@@ -8,6 +7,7 @@ interface ButtonProps {
 }
 
 export const Button: React.FC<ButtonProps> = props => {
+
   return (
     <button
       css={$button}
