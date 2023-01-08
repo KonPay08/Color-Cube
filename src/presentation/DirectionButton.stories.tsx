@@ -1,17 +1,16 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Button } from './Button.template';
+import { DirectionButton } from './DirectionButton.template';
 
-const meta: ComponentMeta<typeof Button> = {
-  title: 'Template/Button',
-  component: Button,
+const meta: ComponentMeta<typeof DirectionButton> = {
+  title: 'Template/DirectionButton',
+  component: DirectionButton,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
 };
 export default meta;
 
-const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
-
+const Template: ComponentStory<typeof DirectionButton> = args => <DirectionButton {...args} />;
 
 export const Large = Template.bind({});
 Large.args = {

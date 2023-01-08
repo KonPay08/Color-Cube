@@ -1,12 +1,15 @@
 import { css } from "@emotion/react";
+import { DirectionIcon } from "./DirectionIcon";
+
 interface ButtonProps {
   backgroundColor?: string;
   size?: 'small' | 'medium' | 'large';
-  label: string;
+  label?: string;
   onClickhandler?: () => void;
+  direction?:  "left" | "right" | "top" | "bottom";
 }
 
-export const Button: React.FC<ButtonProps> = props => {
+export const DirectionButton: React.FC<ButtonProps> = props => {
 
   return (
     <button
@@ -16,6 +19,7 @@ export const Button: React.FC<ButtonProps> = props => {
       onClick={props.onClickhandler}
       style={{ backgroundColor: props.backgroundColor }}
     >
+      <DirectionIcon direction={props.direction}/>
       {props.label}
     </button>
   );
@@ -24,17 +28,21 @@ export const Button: React.FC<ButtonProps> = props => {
 const $button = css`
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
-  border: 0;
+  border-color: #1ea7fd;
   border-radius: 3em;
   cursor: pointer;
   display: inline-block;
   line-height: 1;
-  background-color: #1ea7fd;
+  background-color: #0ea0fa;
   color: white;
 
+  &:hover {
+    opacity: 0.8;
+  }
+
   &[data-is-size="small"] {
-    font-size: 12px;
-    padding: 10px 16px;
+    font-size: 20px;
+    padding: 5px 8px;
   }
   &[data-is-size="medium"] {
     font-size: 14px;
