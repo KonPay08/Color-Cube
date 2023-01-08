@@ -1,3 +1,5 @@
+//TODO: webpackビルドだと遅いのでどっかでstorybookのみviteに移行する
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
