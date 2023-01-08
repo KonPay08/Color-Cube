@@ -1,9 +1,7 @@
-import { View } from '../client/View.container';
+import { IndecPage } from '../client/IndexPage/Index';
 
 export default function PlayPage(){
   return (
-    <>
-      <View />
-    </>
+   <IndecPage />
   )
 }

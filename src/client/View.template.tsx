@@ -1,6 +1,8 @@
+import React from 'react'
 import { css } from "@emotion/react";
 import { useEffect } from "react";
-import { Cube } from "./Cube/Cube.container";
+import { DirectionButton } from "../presentation/DirectionButton.template";
+import { CubeTemplate } from "./Cube/Cube.template";
 import { MyDialog, MyDialogProps } from "./MyDialog";
 import { surface, Surface } from "./useSurface";
 
@@ -20,14 +22,14 @@ type Props = {
   handleDestination_right(): void,
   handleDestination_left(): void,
   
-  modalConfig: MyDialogProps | undefined
+  modalConfig?: MyDialogProps | undefined
   randomSurface(): void,
   handleResetClick: () => Promise<void>,
   handleRandomClick: () => Promise<void>,
   complete: () => Promise<void>,
 };
 
-export const ViewColorTemplate: React.FC<Props> = props => {
+export const ViewTemplate: React.FC<Props> = props => {
 
   useEffect(() => {
     props.randomSurface();
@@ -42,41 +44,33 @@ export const ViewColorTemplate: React.FC<Props> = props => {
       {props.modalConfig && <MyDialog {...props.modalConfig} />}
       <div css={$container}>
         <div css={$surface_button}>
-          <button onClick={props.handleDestination_left}>
-            左回転
-          </button>
-          <button onClick={props.handleDestination_right}>
-            右回転
-          </button>
-          <button onClick={props.handleResetClick}>
-            Reset
-          </button>
-          <button onClick={props.handleRandomClick}>
-            Random
-          </button>
+          <DirectionButton onClickhandler={props.handleDestination_left}  size="medium" label="左回転" />
+          <DirectionButton onClickhandler={props.handleDestination_right}  size="medium" label="右回転" />
+          <DirectionButton onClickhandler={props.handleResetClick}  size="medium" label="Reset" />
+          <DirectionButton onClickhandler={props.handleRandomClick}  size="medium" label="Random" />
         </div>
         <div css={$top_rotation_button}>
-          <button onClick={props.handleSurface_Vertica_Left_Back}>↑</button>
-          <button onClick={props.handleSurface_Vertica_Right_Back}>↑</button>
+          <DirectionButton onClickhandler={props.handleSurface_Vertica_Left_Back} direction="top" size="small" />
+          <DirectionButton onClickhandler={props.handleSurface_Vertica_Right_Back} direction="top" size="small" />
         </div>
 
         <div css={$cube_container}>
           <div css={$left_rotation_button}>
-            <button onClick={props.handleSurface_Beside_Top_Left}>←</button>
-            <button onClick={props.handleSurface_Beside_Bottom_Left}>←</button>
+          <DirectionButton onClickhandler={props.handleSurface_Beside_Top_Left} direction="left" size="small" />
+          <DirectionButton onClickhandler={props.handleSurface_Beside_Bottom_Left} direction="left" size="small" />
           </div>
 
-          <Cube view={props.view} />
+          <CubeTemplate view={props.view} />
 
           <div css={$right_rotation_button}>
-            <button onClick={props.handleSurface_Beside_Top_Right}>→</button>
-            <button onClick={props.handleSurface_Beside_Bottom_Right}>→</button>
+            <DirectionButton onClickhandler={props.handleSurface_Beside_Top_Right} direction="right" size="small" />
+            <DirectionButton onClickhandler={props.handleSurface_Beside_Bottom_Right} direction="right" size="small" />
           </div>
         </div>
 
         <div css={$buttom_rotation_button}>
-          <button onClick={props.handleSurface_Vertical_Left_Front}>↓</button>
-          <button onClick={props.handleSurface_Vertical_Right_Front}>↓</button>
+          <DirectionButton onClickhandler={props.handleSurface_Vertical_Left_Front} direction="bottom" size="small" />
+          <DirectionButton onClickhandler={props.handleSurface_Vertical_Right_Front} direction="bottom" size="small" />
         </div>
       </div>
     </>
@@ -84,7 +78,6 @@ export const ViewColorTemplate: React.FC<Props> = props => {
 };
 
 const $container = css`
-  margin-top: 100px;
   & button {
     margin: 10px;
   };
@@ -97,7 +90,7 @@ const $surface_button = css`
 const $cube_container = css`
   display: flex;
   justify-content: center;
-  margin: 40px 0 60px;
+  margin: 40px 0 40px;
 `
 const $top_rotation_button = css`
   text-align: center;
@@ -106,13 +99,13 @@ const $left_rotation_button = css`
   text-align: center;
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 20px;
 `
 const $right_rotation_button = css`
   text-align: center;
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 20px;
 `
 const $buttom_rotation_button = css`
   text-align: center;
