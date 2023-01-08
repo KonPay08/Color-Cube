@@ -11,7 +11,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.10",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
     "next": "^13.1.1",
@@ -57,13 +56,16 @@
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/addon-interactions": "^6.5.15",
     "@storybook/addon-links": "^6.5.15",
+    "@storybook/builder-vite": "^0.2.6",
     "@storybook/builder-webpack5": "^6.5.15",
     "@storybook/manager-webpack5": "^6.5.15",
     "@storybook/mdx2-csf": "^0.0.3",
     "@storybook/react": "^6.5.15",
     "@storybook/testing-library": "^0.0.13",
+    "@types/node": "^18.11.18",
     "babel-loader": "^8.3.0",
     "eslint": "^8.31.0",
-    "eslint-config-react-app": "^7.0.1"
+    "eslint-config-react-app": "^7.0.1",
+    "vite": "^4.0.4"
   }
 }
