@@ -1,4 +1,4 @@
-import { Surface } from "../../src/client/useSurface";
+import { Surface } from "../../src/client/PlayPage/useSurface";
 
 export const MockSurface: Surface[] = [
   {

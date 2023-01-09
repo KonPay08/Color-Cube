@@ -1,24 +1,31 @@
 import { css } from "@emotion/react";
-import { View } from "../View.container"
+import { Mainnet, DAppProvider, Config, Goerli } from '@usedapp/core'
+import { getDefaultProvider } from 'ethers'
+import { ConnectMetamask } from "../ConnectMetaMask/ConnectMetaMask.container";
 
-export const IndecPage = () => {
+export const IndexPage = () => {
+  const config: Config = {
+    readOnlyChainId: Mainnet.chainId,
+    readOnlyUrls: {
+      [Mainnet.chainId]: getDefaultProvider('mainnet'),
+      [Goerli.chainId]: getDefaultProvider('goerli'),
+    },
+  };
   return (
     <div css={$IndexPage}>
-      <div css={$viewcontainer}>
-        <View />
-      </div>
+      <DAppProvider config={config}>
+        <div css={$container}>
+          <ConnectMetamask config={config} />
+        </div>
+      </DAppProvider>
     </div>
   );
 };
-
 const $IndexPage = css`
-  margin: -8px;
   height: 100vh;
   width: 100vw;
-  background-image: linear-gradient(90deg, rgba(65, 164, 253, 0.42), rgba(14, 244, 255, 0.42));
 `;
-
-const $viewcontainer = css`
+const $container = css`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,4 +33,4 @@ const $viewcontainer = css`
   position: relative;
   height: 100%;
   width: 100%;
-`
+`;
