@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useSound from 'use-sound';
-import { MockSurface } from "../../mock/data/Mock";
-import { MyDialogProps } from "./MyDialog";
+import { MockSurface } from "../../../mock/data/Mock";
+import { MyDialogProps } from "../../presentation/MyDialog.template";
 
 
 export type Surface = {

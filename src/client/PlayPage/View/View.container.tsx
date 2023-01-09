@@ -1,4 +1,4 @@
-import { useSurface } from "./useSurface"
+import { useSurface } from "../useSurface"
 import { ViewTemplate } from "./View.template";
 
 export const View = () => {

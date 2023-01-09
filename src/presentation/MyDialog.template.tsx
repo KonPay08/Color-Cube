@@ -9,7 +9,7 @@ export type MyDialogProps = {
   isComplete?: boolean,
 };
 
-export const MyDialog: React.FC<MyDialogProps> = props => {
+export const MyDialogTemplate: React.FC<MyDialogProps> = props => {
   return (
       <Dialog open onClose={() => props.onClose("close")} >
         <DialogTitle>{props.title}</DialogTitle>

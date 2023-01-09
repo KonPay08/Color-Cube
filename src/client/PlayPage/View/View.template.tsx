@@ -1,10 +1,10 @@
 import React from 'react'
 import { css } from "@emotion/react";
 import { useEffect } from "react";
-import { DirectionButton } from "../presentation/DirectionButton.template";
-import { CubeTemplate } from "./Cube/Cube.template";
-import { MyDialog, MyDialogProps } from "./MyDialog";
-import { surface, Surface } from "./useSurface";
+import { DirectionButton } from "../../../presentation/DirectionButton/DirectionButton.template";
+import { CubeTemplate } from "../../PlayPage/Cube/Cube.template";
+import { MyDialogTemplate, MyDialogProps } from "../../../presentation/MyDialog.template";
+import { surface, Surface } from "../useSurface";
 
 type Props = {
   view: Surface,
@@ -41,7 +41,7 @@ export const ViewTemplate: React.FC<Props> = props => {
   
   return (
     <>
-      {props.modalConfig && <MyDialog {...props.modalConfig} />}
+      {props.modalConfig && <MyDialogTemplate {...props.modalConfig} />}
       <div css={$container}>
         <div css={$surface_button}>
           <DirectionButton onClickhandler={props.handleDestination_left}  size="medium" label="左回転" />
