@@ -1,4 +1,5 @@
 import { Dialog, DialogTitle, DialogContent, DialogActions, DialogContentText, Button } from '@mui/material';
+import { css } from "@emotion/react";
 
 export type MyDialogProps = {
   onClose: (value: string) => void,
@@ -14,6 +15,7 @@ export const MyDialogTemplate: React.FC<MyDialogProps> = props => {
       <Dialog open onClose={() => props.onClose("close")} >
         <DialogTitle>{props.title}</DialogTitle>
         <DialogContent>
+          <img src="/animation.png" css={$animation}/>
           <DialogContentText>{props.message}</DialogContentText>
           <DialogActions>
             <Button onClick={() => props.onClose("ok")}>{props.approveText}</Button>
@@ -23,3 +25,10 @@ export const MyDialogTemplate: React.FC<MyDialogProps> = props => {
       </Dialog>
   );
 };
+
+const $animation = css`
+  width: 300px;
+  height: 100px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+`
