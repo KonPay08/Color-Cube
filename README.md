@@ -1,4 +1,4 @@
 　　　　👇  　　**Let's click the link to play** 　👇
 
-[![cube](https://user-images.githubusercontent.com/84298892/210935238-af0046dd-d949-4eee-be56-645b994eb53c.gif)](https://color-cube-chi.vercel.app/)
+[![bookmark1](https://user-images.githubusercontent.com/84298892/222150277-524fdde9-d8c1-4cff-95fd-56be7faaffe3.gif)](https://color-cube-chi.vercel.app/)
 

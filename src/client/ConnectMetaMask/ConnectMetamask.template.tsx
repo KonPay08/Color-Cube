@@ -29,7 +29,7 @@ export const ConnectMetamaskTemplate: React.FC<ConnectMetamaskTemplateProps> = p
   
   return (
     <div css={$container}>
-      {props.account 
+      {/* {props.account 
         ? <Box>
             <Text color="black" fontSize="md">
               {props.etherBalance && parseFloat(formatEther(props.etherBalance)).toFixed(5)} ETH
@@ -57,7 +57,11 @@ export const ConnectMetamaskTemplate: React.FC<ConnectMetamaskTemplateProps> = p
             />
             Please Connect Metamask Wallet
           </div>
-      }
+      } */}  <ChakraButtonTemplate 
+      label="Play"
+      onClickHandler={handlePostRouter}
+    />
+    Let's Click to Play!
     </div>
   );
 };

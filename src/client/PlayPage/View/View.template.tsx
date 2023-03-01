@@ -46,7 +46,7 @@ export const ViewTemplate: React.FC<Props> = props => {
         <div css={$surface_button}>
           <DirectionButton onClickhandler={props.handleDestination_left}  size="medium" label="左回転" />
           <DirectionButton onClickhandler={props.handleDestination_right}  size="medium" label="右回転" />
-          <DirectionButton onClickhandler={props.handleResetClick}  size="medium" label="Reset" />
+          {/* <DirectionButton onClickhandler={props.handleResetClick}  size="medium" label="Reset" /> */}
           <DirectionButton onClickhandler={props.handleRandomClick}  size="medium" label="Random" />
         </div>
         <div css={$top_rotation_button}>
